@@ -73,6 +73,8 @@ echo Handling aurelia app deployment.
 # 1. Install npm packages
 if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then
   cd "$DEPLOYMENT_SOURCE"
+  echo "Config strict ssl certificate to false"
+  eval npm config set strict-ssl false
   echo "Running npm install"
   eval npm install
   exitWithMessageOnError "npm failed"
